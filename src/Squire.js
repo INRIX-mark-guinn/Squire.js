@@ -162,6 +162,8 @@ define(function() {
     
     each(this.mocks, function(mock, path) {
       define(path, mock);
+      // this covers other cases such as plugin mocks and using this module on node with amdefine
+      requirejs.s.contexts[self.id].defined[path] = mock;
     });
 
     this.load(dependencies, function() {
