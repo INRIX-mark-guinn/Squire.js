@@ -128,11 +128,11 @@ define(function() {
         this.mock(key, alias);
       }, this);
     } else {
-      if (isFunction(mock)) {
-        this.mocks[path] = Squire.Helpers.returns(mock);
-      } else {
+      //if (isFunction(mock)) {
+      //  this.mocks[path] = Squire.Helpers.returns(mock);
+      //} else {
         this.mocks[path] = mock;
-      }
+      //}
     }
 
     return this;
@@ -161,7 +161,7 @@ define(function() {
     }
     
     each(this.mocks, function(mock, path) {
-      define(path, mock);
+      //define(path, mock);
       // this covers other cases such as plugin mocks and using this module on node with amdefine
       requirejs.s.contexts[self.id].defined[path] = mock;
     });
